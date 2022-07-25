@@ -1157,9 +1157,9 @@ return view.extend({
 						o.placeholder = '';
 
 					o = ss.taboption('advanced', form.Value, 'macaddr', _('MAC address'), _('Override default MAC address - the range of usable addresses might be limited by the driver'));
-					o.optional = true;
-					o.placeholder = radioNet.getActiveBSSID();
-					o.datatype = 'macaddr';
+					o.value('', _('automatic (no override)'));
+					o.value('random', _('randomly generated'));
+					o.datatype = "or(macaddr,'random')";
 
 					o = ss.taboption('advanced', form.Flag, 'short_preamble', _('Short Preamble'));
 					o.default = o.enabled;
